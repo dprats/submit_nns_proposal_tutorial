@@ -1,0 +1,35 @@
+{
+  "canisters": {
+    "submit_nns_proposal_tutorial": {
+      "main": "src/submit_nns_proposal_tutorial/main.mo",
+      "type": "motoko"
+    },
+    "submit_nns_proposal_tutorial_assets": {
+      "dependencies": [
+        "submit_nns_proposal_tutorial"
+      ],
+      "frontend": {
+        "entrypoint": "src/submit_nns_proposal_tutorial_assets/src/index.html"
+      },
+      "source": [
+        "src/submit_nns_proposal_tutorial_assets/assets",
+        "dist/submit_nns_proposal_tutorial_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "dfx": "0.8.1",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
