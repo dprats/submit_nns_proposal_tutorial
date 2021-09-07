@@ -10,11 +10,86 @@
 </head>
 <body>
     <img src="logo.png" alt="DFINITY logo" />
-    <section>
+    <!-- <section>
         <label for="name">Enter your name: &nbsp;</label>
         <input id="name" alt="Name" type="text" />
         <button id="clickMeBtn">Click Me!</button>
-    </section>
-    <section id="greeting"></section>
+    </section> -->
+    <!-- <section id="greeting"></section> -->
+
+    <!-- <section> -->
+        <h1>Goal</h1>
+        <br />
+        Guide users to submit motion proposals as we did for <a href="https://dashboard.internetcomputer.org/proposal/18337 ">Increased Canister Storage</a>.
+        <br />
+        <h1>Tools and Requirements</h1>
+        <br />
+        Users will require the following tools:
+        <ul>
+           <li>NNS Dapp: https://nns.ic0.app/ </li>
+           <li> Keysmith: https://github.com/dfinity/keysmith </li>
+           <li> Quill: https://github.com/dfinity/quill </li>
+           <li> Canister SDK: https://sdk.dfinity.org/docs/quickstart/local-quickstart.html</li>
+           <li>Candid Web UI of Governance Canister (id: rrkah-fqaaa-aaaaa-aaaaq-cai): https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.ic0.app/?id=rrkah-fqaaa-aaaaa-aaaaq-cai</li>  
+        </ul>
+       
+        <h1>Steps to Submit a proposal</h1>
+        Note: since the NNS Dapp accounts have only a few ICP and the new  neuron only had 1 ICP, I did all of this on just one laptop connected to the internet. 
+        
+        Create a key with keysmith
+        Generate Seed: keysmith generate -o seed.txt
+        keysmith private-key -o private.pem
+        Ledger Account: keysmith account -i 0
+        Install that key into dfx and create an identity (called "proposals" in my case) on dfx
+        dfx identity import proposals private.pem
+        Look at the IDs on quill and dfx to make sure the principals are the same
+        quill --pem-file private.pem public-ids
+        dfx --identity proposals ledger account-id
+        In my case it was the same account: 97b5eb9a467f4ce6f43a494ee0bfedeeee0b52d106e0272556c1ad991f99e3da
+            
+        Send at least 1 ICP to the account in step #3
+        You need at least 1 ICP to stake a neuron and there are 0.01 transaction fees, so I recommend sending 1.1
+        
+        Now that your account has ICP, use quill to spawn a neuron
+        quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json
+        quill send message.json
+        Increase neuron dissolve to 1 year with quill
+        One year: 31557600
+        quill --pem-file private.pem neuron-manage 148885932052941245 --additional-dissolve-delay-seconds 31557600 > message.json
+        quill send message.json
+        Send proposal with dfx
+        Manually construct the payload with following parameters:
+        
+        Payload:
+        {
+        
+        //type of proposal
+        action: motion, 
+        
+        //this is the summary shown at the top of the proposal. typically few words
+        summary: "Implement the design...”
+        
+        //URL linked, typically a github link here:https://github.com/ic-association/nns-proposals
+        url="https://github.com/ic-association/nns-proposals... ”
+        
+        //description, can be multiple sentences
+        motionText: "Currently, smart contract canister... " 
+        
+        //neuron to propose. Caller must have access to this neuron. This is Diego’s neuron.
+        neuron: {id=1488859320522941245:nat64}
+        
+        }
+        The actual DFX command:
+        
+        dfx --identity proposals canister --network ic --no-wallet call rrkah-fqaaa-aaaaa-aaaaq-cai manage_neuron '(record {id = null; command=opt variant {MakeProposal=record {url="urlExample"; action=opt variant {Motion=record {motion_text="motionExample"}}; summary="summaryExample"}}; neuron_id_or_subaccount=opt variant {NeuronId=record {id=148885932052941245:nat64}}})'
+        
+        
+        
+        Verify the proposal was submitted
+        Go to https://dashboard.internetcomputer.org/governance 
+            
+
+    <!-- </section>     -->
+
 </body>
 </html>
