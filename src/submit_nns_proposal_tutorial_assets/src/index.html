@@ -37,6 +37,7 @@
         Note: since the NNS Dapp accounts have only a few ICP and the new  neuron only had 1 ICP, I did all of this on just one laptop connected to the internet. 
         
         Create a key with keysmith
+        <br>
         Generate Seed: keysmith generate -o seed.txt
         keysmith private-key -o private.pem
         Ledger Account: keysmith account -i 0
@@ -45,11 +46,13 @@
         Look at the IDs on quill and dfx to make sure the principals are the same
         quill --pem-file private.pem public-ids
         dfx --identity proposals ledger account-id
+        <br>
         In my case it was the same account: 97b5eb9a467f4ce6f43a494ee0bfedeeee0b52d106e0272556c1ad991f99e3da
-            
+        <br>    
         Send at least 1 ICP to the account in step #3
+        <br>
         You need at least 1 ICP to stake a neuron and there are 0.01 transaction fees, so I recommend sending 1.1
-        
+        <br>
         Now that your account has ICP, use quill to spawn a neuron
         quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json
         quill send message.json
@@ -59,7 +62,7 @@
         quill send message.json
         Send proposal with dfx
         Manually construct the payload with following parameters:
-        
+        <br>
         Payload:
         {
         
