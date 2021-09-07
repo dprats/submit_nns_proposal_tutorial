@@ -1,4 +1,4 @@
-# submit_nns_proposal_tutorial
+# Tutorial: How to submit NNS proposals
 
 This is a static page (hosted on the Internet Computer) that gives user instructions on how to submiyt Motion proposals to the NNS.
 
