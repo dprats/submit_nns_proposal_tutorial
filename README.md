@@ -25,12 +25,14 @@ Type in:
 npm start
 ```
 
+Which will start a server at `http://localhost:8080`.
+
 And leave that window running (do not close it).
 
 ### Browser window
+
 This will put you in the following developer loop:
 1. Make a change to the repo
 2. Save change locally
 3. Navigate to http://localhost:8080/ to see the latest HTML change
 
-Which will start a server at `http://localhost:8080`.
