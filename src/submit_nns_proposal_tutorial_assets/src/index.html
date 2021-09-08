@@ -55,8 +55,8 @@
                 Generate Seed: keysmith generate -o seed.txt<br />
                 <br />
                 <code>
-                    keysmith private-key -o private.pem<br />
-                    Ledger Account: keysmith account -i 0<br />
+                    $ keysmith private-key -o private.pem<br />
+                    $ Ledger Account: keysmith account -i 0<br />
                 </code>
 
                 <br />
@@ -70,14 +70,14 @@
 
                 Install that key into dfx and create an identity (called "proposals" in my case) on dfx
                 <br />
-                <code>dfx identity import proposals private.pem<br /></code>
+                <code> $ dfx identity import proposals private.pem<br /></code>
                 <br />
                 <br />
                 Look at the IDs on quill and dfx to make sure the principals are the same
                 <br />
                 <code>
-                    quill --pem-file private.pem public-ids<br />
-                    dfx --identity proposals ledger account-id<br />
+                    $ quill --pem-file private.pem public-ids<br />
+                    $ dfx --identity proposals ledger account-id<br />
                 </code>
         
                 <br />
@@ -98,8 +98,8 @@
                 <br />
 
                 <code>
-                quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json
-                quill send message.json
+                $ quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json
+                $ quill send message.json
                 </code>
                 <br/>
                 <br/>
@@ -112,8 +112,8 @@
                 <h2>4. Increase neuron dissolve to 1 year with quill<br/></h2>
                 One year: 31557600<br/>
                 <code>
-                quill --pem-file private.pem neuron-manage 148885932052941245 --additional-dissolve-delay-seconds 31557600 > message.json<br/>
-                quill send message.json<br/>
+                $ quill --pem-file private.pem neuron-manage 148885932052941245 --additional-dissolve-delay-seconds 31557600 > message.json<br/>
+                $ quill send message.json<br/>
                 </code>
                 <br/>
                 <br/>
@@ -148,10 +148,9 @@
                     } <br/>
                 </code>
                 <br />
-                The actual DFX command:<br />
-                <br />
+                <p>The actual DFX command:</p>
                 <code>
-                    dfx --identity proposals canister --network ic --no-wallet call rrkah-fqaaa-aaaaa-aaaaq-cai manage_neuron '(record {id = null; command=opt variant {MakeProposal=record {url="urlExample"; action=opt variant {Motion=record {motion_text="motionExample"}}; summary="summaryExample"}}; neuron_id_or_subaccount=opt variant {NeuronId=record {id=148885932052941245:nat64}}})'
+                    $ dfx --identity proposals canister --network ic --no-wallet call rrkah-fqaaa-aaaaa-aaaaq-cai manage_neuron '(record {id = null; command=opt variant {MakeProposal=record {url="urlExample"; action=opt variant {Motion=record {motion_text="motionExample"}}; summary="summaryExample"}}; neuron_id_or_subaccount=opt variant {NeuronId=record {id=148885932052941245:nat64}}})'
                 </code>
                 
             </div>
