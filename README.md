@@ -1,6 +1,6 @@
 # Tutorial: How to submit NNS proposals
 
-This is a static page (hosted on the Internet Computer) that gives user instructions on how to submiyt Motion proposals to the NNS.
+This is a static page (hosted on the Internet Computer) that gives user instructions on how to submit motion proposals to the NNS.
 
 ## Running the project locally
 
