@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Tutorial: How to submit an NNS Proposal</title>
+    <base href="/">
+
+    <link type="text/css" rel="stylesheet" href="main.css" />
+
+<style>
+body {
+  background-color: black;
+background-image: linear-gradient(to right, black, white, black);
+}
+
+#main {background-color:white;
+border:solid black 1px;
+box-shadow: 0px 0px 70px white;
+max-width:800px;
+margin: 30px auto;
+padding: 50px 30px;
+text-align:center;
+}
+
+h1 {
+  color: #781859;
+  text-align:center;
+margin-top:40px;
+}
+
+<!-- h2 {
+margin-top:40px;
+}
+--> 
+
+div.text {
+text-align:left;
+}
+
+summary {
+font-size: 26px;
+padding:20px;
+}
+
+p.code {
+background-color: #eeeeee;
+padding:10px;
+border:solid black 1px;
+}
+
+</style>
+
+</head>
+<body>
+<div id="main">
+    <img src="https://internetcomputer.org/images/home/logos/dfinity.png" alt="DFINITY logo" />
+
+
+    <!-- <section> -->
+    <div>
+
+        <!-- Section 1 -->
+        <div class="text">
+            <h1>How to submit a Motion Proposal</h1>
+            
+            <p>The Network Nervous System (NNS) is the controlling mechanism by which the <a href="https://internetcomputer.org/">Internet Computer</a>’s nodes and subnets are organized, tracked, and managed.</p>
+            <p>The Internet Computer community is actively involved in designing and shaping the network's roadmap. Proposed upgrades to the NNS are subject to community discussion, voting, and approval.</p>
+            <p>The community of ICP token holders can use neurons to vote on proposed roadmap items. Check out the Internet Computer Roadmap page here. This walkthrough will detail how to submit a motion proposal. </p>
+            <p>Guide users to submit motion proposals as done for <a href="https://dashboard.internetcomputer.org/proposal/18337">Increased Canister Storage</a></p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="text">
+            <h1>Tools and Requirements</h1>
+            
+        <div class="text">
+            <h1>How to submit a Motion Proposal</h1>
+            <br />
+            <p>The Network Nervous System (NNS) is the controlling mechanism by which the Internet Computer’s nodes and subnets are organized, tracked, and managed.</p>
+            <p>The Internet Computer community is actively involved in designing and shaping the network's roadmap. Proposed upgrades to the NNS are subject to community discussion, voting, and approval.</p>
+            <p>The community of ICP token holders can use neurons to vote on proposed roadmap items. Check out the Internet Computer Roadmap page here. This walkthrough will detail how to submit a motion proposal. </p>
+            <p>Guide users to submit motion proposals as done for <a href="https://dashboard.internetcomputer.org/proposal/18337">Increased Canister Storage</a></p>
+            <br />
+        </div>
+
+
+        <!-- Section 3: Steps -->
+
+        <div class="text">
+            <h1>Steps to Submit a proposal</h1>
+
+            <p>Note: since the NNS Dapp accounts have only a few ICP and the new  neuron only had 1 ICP, I did all of this on just one laptop connected to the internet.</p>
+
+		<p><i>Expand each section for the detailed instructions</i></p>
+            <!-- Step 1 -->
+            <div class="text">
+		<details>
+		<summary>1. Create a key with keysmith</summary>
+                
+                Generate Seed: keysmith generate -o seed.txt<br />
+                <br />
+		<p class="code">
+                <code>
+                    $ keysmith private-key -o private.pem<br />
+                    $ Ledger Account: keysmith account -i 0<br />
+                </code>
+		</p>
+		</details>
+            </div>
+
+
+            <!-- Step 2 -->
+            <div class="text">
+		<details>
+		<summary>2. Link that key to dfx</summary>
+
+                Install that key into dfx and create an identity (called "proposals" in my case) on dfx
+                <br />
+		<p class="code">
+                <code> $ dfx identity import proposals private.pem<br /></code>
+		</p>
+                <br />
+                Look at the IDs on quill and dfx to make sure the principals are the same
+                <br />
+		<p class="code">
+                <code>
+                    $ quill --pem-file private.pem public-ids<br />
+                    $ dfx --identity proposals ledger account-id<br />
+                </code>
+ 		</p>
+               <br />
+                In my case it was the same account: 97b5eb9a467f4ce6f43a494ee0bfedeeee0b52d106e0272556c1ad991f99e3da
+
+		</details>
+            </div>
+
+
+            <!-- Step 3 -->
+            <div class="text">
+		<details>
+		<summary>3. Send at least 1 ICP to the account in step #1</summary>
+
+                You need at least 1 ICP to stake a neuron and there are 0.01 transaction fees, so I recommend sending 1.1
+                <br />
+                Now that your account has ICP, use quill to spawn a neuron
+                <br />
+		<p class="code">
+                <code>
+                $ quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json
+                $ quill send message.json
+                </code>
+		</p>
+		</details>
+            </div>
+
+
+
+            <!-- Step 4 -->
+            <div class="text">
+		<details>
+		<summary>4. Increase neuron dissolve to 1 year with quill</summary>
+
+                One year: 31557600<br/>
+		<p class="code">
+                <code>
+                $ quill --pem-file private.pem neuron-manage 148885932052941245 --additional-dissolve-delay-seconds 31557600 > message.json<br/>
+                $ quill send message.json<br/>
+                </code>
+		</p>
+		</details>
+            </div>
+
+
+            <!-- Step 5 -->
+            <div class="text">
+		<details>
+		<summary>5. Send proposal with dfx</summary>
+
+                Manually construct the payload with following parameters:
+                <br />
+		<p class="code">
+                <code>
+                    Payload:
+                    <br/>
+                    {
+                    <br/>
+                    //type of proposal <br/>
+                    action: motion, <br/> 
+                    <br/>
+                    //this is the summary shown at the top of the proposal. typically few words <br/>
+                    summary: "Implement the design...� <br/>
+                    <br/>
+                    //URL linked, typically a github link here:https://github.com/ic-association/nns-proposals <br/>
+                    url="https://github.com/ic-association/nns-proposals... � <br/>
+                    <br/>
+                    //description, can be multiple sentences <br/>
+                    motionText: "Currently, smart contract canister... "  <br/>
+                    <br/>
+                    //neuron to propose. Caller must have access to this neuron. This is Diego�s neuron. <br/>
+                    neuron: {id=1488859320522941245:nat64} <br/>
+                    <br/>
+                    } <br/>
+                </code>
+ 		</p>
+               <br />
+                <p>The actual DFX command:</p>
+		<p class="code">
+                <code>
+                    $ dfx --identity proposals canister --network ic --no-wallet call rrkah-fqaaa-aaaaa-aaaaq-cai manage_neuron '(record {id = null; command=opt variant {MakeProposal=record {url="urlExample"; action=opt variant {Motion=record {motion_text="motionExample"}}; summary="summaryExample"}}; neuron_id_or_subaccount=opt variant {NeuronId=record {id=148885932052941245:nat64}}})'
+                </code>
+		</p>
+		</details>
+            </div>
+
+
+            <!-- Step 6 -->
+           <div class="text">
+		<details>
+		<summary>6. Verify the proposal was submitted.</summary>
+                Go to <a href="https://dashboard.internetcomputer.org/governance">https://dashboard.internetcomputer.org/governance </a>
+		</details>
+            </div>
+        </div>
+
+    </div>
+
+
+ 
+           
+
+    <!-- </section>     -->
+
+</div>
+    
+</body>
+</html>

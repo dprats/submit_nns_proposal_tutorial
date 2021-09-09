@@ -1,237 +1,936 @@
 <!doctype html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Tutorial: How to submit an NNS Proposal</title>
-    <base href="/">
+    <meta charSet="utf-8" />
 
-    <link type="text/css" rel="stylesheet" href="main.css" />
+    <title >How to submit NNS Proposals</title>
 
-<style>
-body {
-  background-color: black;
-background-image: linear-gradient(to right, black, white, black);
-}
-
-#main {background-color:white;
-border:solid black 1px;
-box-shadow: 0px 0px 70px white;
-max-width:800px;
-margin: 30px auto;
-padding: 50px 30px;
-text-align:center;
-}
-
-h1 {
-  color: #781859;
-  text-align:center;
-margin-top:40px;
-}
-
-<!-- h2 {
-margin-top:40px;
-}
---> 
-
-div.text {
-text-align:left;
-}
-
-summary {
-font-size: 26px;
-padding:20px;
-}
-
-p.code {
-background-color: #eeeeee;
-padding:10px;
-border:solid black 1px;
-}
-
-</style>
-
+    <link rel="stylesheet" href=https://b.stripecdn.com/docs/assets/legacy.9bf1c6d4e8cb1bba5bf4.css />
+    <link rel="stylesheet" href=https://b.stripecdn.com/docs/assets/sail.9bf1c6d4e8cb1bba5bf4.css />
+    <link rel="stylesheet" href=https://b.stripecdn.com/docs/assets/docs.9bf1c6d4e8cb1bba5bf4.css />
 </head>
+
 <body>
-<div id="main">
-    <img src="https://internetcomputer.org/images/home/logos/dfinity.png" alt="DFINITY logo" />
+    <div id="root">
+        <div class="Shell Shell-loaded Sidebar--expanded Box-root Flex-flex Flex-direction--column">
+            <div class="Header Box-root Flex-flex Flex-direction--column Flex-justifyContent--spaceBetween">
+                <div class="Header--small Box-root">
+                    
+                    
+                </div>
+                <div class="Header--full Box-root">
+                    <div class="Header-top Box-root Box-background--offset Margin-left--4 Flex-flex Flex-alignItems--center Flex-justifyContent--spaceBetween">
+                      
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="Shell-container Box-root Flex-flex">
+             
+                <div class="Box-root" style="flex-grow:1">
+                    <div tabindex="0" class="Content Box-root">
+                        <div class="Content-container Box-root">
+                            <div
+                                class="Content-articleContainer Box-root Box-background--white Padding-bottom--32 Padding-horizontal--48">
+                             
+
+                                <!-- Intro section -->
+                                <div class="Box-root Flex-flex Flex-direction--row">
+                                    <div class="Content-article MarkdocContentWrapper Box-root">
+                                        <article id="content" data-locale="en-US">
+                                            <div class="Box-root Padding-bottom--24">
+                                                <h1 class="Title">"How to Submit NNS Proposals" for Dummies</h1>
+                                                <div class="Box-root Padding-top--12"><span
+                                                        class="Text-color--default Text-fontSize--24 Text-fontWeight--regular Text-lineHeight--28 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--block">
+                                                        Create, sign, and submit Motion proposals to the NNS.</span></div>
+                                            </div>
+                                            <div class="Document">
+                                                <p>The Network Nervous System (NNS) is the controlling mechanism by which the Internet Computerâ€™s nodes and subnets are organized, tracked, and managed.
+
+                                                    The Internet Computer community is actively involved in designing and shaping the network's roadmap. Proposed upgrades to the NNS are subject to community discussion, voting, and approval.
+                                                    
+                                                    The community of ICP token holders can use neurons to vote on proposed roadmap items. Check out the Internet Computer Roadmap page here. This walkthrough will detail how to submit a motion proposal. </p>
+                                                <div
+                                                    class="ZoomableImage-wrapper Box-root Padding-top--32 Padding-bottom--12">
+                                                    <img class=""
+                                                        src="https://b.stripecdn.com/docs/assets/stripe_cli_demo.27af14dba735ec8c52361751b48bde34.gif"
+                                                        alt="" width="100%" /></div>
+                               
 
 
-    <!-- <section> -->
-    <div>
+                                                 <!-- Step 1: Install Keysmith -->
+                                                 <div aria-expanded="true" class="Section Section--numbered Box-root"><a
+                                                    id="install-keysmith"
+                                                    class="UnstyledLink InlineLink Text-color--blue"
+                                                    href="#install-keysmith">
+                                                    <div class="Box-root Padding-top--16 Padding-bottom--12">
+                                                        <div
+                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--spaceBetween">
+                                                            <h2 class="Heading Section-header">Install Keysmith<div
+                                                                    class="Section-badge-list Box-root Padding-left--8">
+                                                                </div>
+                                                            </h2>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                                    <div tabindex="-1"
+                                                        class="Section-content Box-root Padding-top--0 Padding-bottom--32">
+                                                        <!-- <p>To generate seed, enter <code
+                                                                class="InlineCode">keysmith generate -o seed.txt</code> in the terminal. This will generate a seed which is saved in a file called <code> seed.text</code> 
+                                                        </p> -->
+                                                        <p><a href="https://github.com/dfinity/keysmith">Keysmith</a> is a tool that lets you derive cryptographic keys and identifiers for the Internet Computer. 
+                                                            Among these identifiers includes an account identifier, which indicates the source or 
+                                                            destination of an ICP token transfer. Keysmith does not sign or send messages to the Internet Computer. </p>
+                                                        <p>To install Keysmith...</p>
 
-        <!-- Section 1 -->
-        <div class="text">
-            <h1>How to submit a Motion Proposal</h1>
-            
-            <p>The Network Nervous System (NNS) is the controlling mechanism by which the <a href="https://internetcomputer.org/">Internet Computer</a>â€™s nodes and subnets are organized, tracked, and managed.</p>
-            <p>The Internet Computer community is actively involved in designing and shaping the network's roadmap. Proposed upgrades to the NNS are subject to community discussion, voting, and approval.</p>
-            <p>The community of ICP token holders can use neurons to vote on proposed roadmap items. Check out the Internet Computer Roadmap page here. This walkthrough will detail how to submit a motion proposal. </p>
-            <p>Guide users to submit motion proposals as done for <a href="https://dashboard.internetcomputer.org/proposal/18337">Increased Canister Storage</a></p>
+                                                        <p>1.1 Navigate to the Keysmith repo on Github: <a href="https://github.com/dfinity/keysmith">https://github.com/dfinity/keysmith</a>
+                                                        </p>
+                                                        <p>Tip: To install on a Macbook, choose keysmith-darwin-amd64.tar.gz from the options.</p>
+
+                                                        <p>1.2 Follow the <a href="https://github.com/dfinity/keysmith#download">download instructions</a></p>
+                                                        <p>1.3 Follow the <a href="https://github.com/dfinity/keysmith#verify">verify instructions</a></p>
+                                                        <p>1.4 Follow the <a href="https://github.com/dfinity/keysmith#install">install instructions</a></p>
+                                    
+                                                        <div class="Box-root">
+                                                            <div data-language="bash"
+                                                                class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                <div
+                                                                    class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                            style="margin-left:-4px;margin-top:-4px">
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="12" width="12"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                            fill-rule="evenodd"></path>
+                                                                                    </svg></div>
+                                                                            </div>
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">Terminal
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div
+                                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                            <div class="Box-root Box-hideIfEmpty"
+                                                                                style="pointer-events:auto">
+                                                                                <div class="Box-root"><button
+                                                                                        title="Copy to clipboard"
+                                                                                        type="button"
+                                                                                        class="UnstyledLink">
+                                                                                        <div aria-hidden="true"
+                                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                            <svg aria-hidden="true"
+                                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                height="14" width="14"
+                                                                                                viewBox="0 0 16 16"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                    fill-rule="evenodd">
+                                                                                                </path>
+                                                                                            </svg></div>
+                                                                                    </button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                      
+                                                            </div>
+                                                                <!-- 1.2 Terminal Input + Output -->
+                                                            <div data-language="bash"
+                                                                class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                <div
+                                                                    class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                            style="margin-left:-4px;margin-top:-4px">
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--terminal CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--terminal-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="12" width="12"
+                                                                                        viewBox="0 0 12 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M2 0h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v5h6V2H2zm.5 12a.5.5 0 1 0 0 1h5a.5.5 0 1 0 0-1h-5zm9-13.5a.5.5 0 0 1 .5.5v14a.5.5 0 1 1-1 0V1a.5.5 0 0 1 .5-.5z"
+                                                                                            fill-rule="evenodd"></path>
+                                                                                    </svg></div>
+                                                                            </div>
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">Terminal</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div
+                                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                            <div class="Box-root Box-hideIfEmpty"
+                                                                                style="pointer-events:auto">
+                                                                                <div class="Box-root"><button
+                                                                                        title="Copy to clipboard"
+                                                                                        type="button"
+                                                                                        class="UnstyledLink">
+                                                                                        <div aria-hidden="true"
+                                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                            <svg aria-hidden="true"
+                                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                height="14" width="14"
+                                                                                                viewBox="0 0 16 16"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                    fill-rule="evenodd">
+                                                                                                </path>
+                                                                                            </svg></div>
+                                                                                    </button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <pre
+                                                                    class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">keysmith version
+<span class="token punctuation">1.4.1-release</span></code><span class="CodeBlock-lineNumbers"><span></span><span></span></span></div></pre>
+                                                            </div>
+                                                        </div>
+                                                        <p>You can confirm successful installation by checking the version number (Note: numbers will vary as new upgrades occur).</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Step 2: Generate a key with Keysmith -->
+                                                <div aria-expanded="true" class="Section Section--numbered Box-root"><a
+                                                        id="login-account"
+                                                        class="UnstyledLink InlineLink Text-color--blue"
+                                                        href="#generate-key">
+                                                        <div class="Box-root Padding-top--16 Padding-bottom--12">
+                                                            <div
+                                                                class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--spaceBetween">
+                                                                <h2 class="Heading Section-header">Generate a key with Keysmith<div
+                                                                        class="Section-badge-list Box-root Padding-left--8">
+                                                                    </div>
+                                                                </h2>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div tabindex="-1"
+                                                        class="Section-content Box-root Padding-top--0 Padding-bottom--32">
+                                                        <p>To generate a key we need to do three steps: generate a seed, create a private/public keypair from that seed, and create an account on the Ledger with that private/public keypair.</p>
+                                                        <div class="Box-root">
+                                                            <div data-language="bash"
+                                                                class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                <div
+                                                                    class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                            style="margin-left:-4px;margin-top:-4px">
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="12" width="12"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                            fill-rule="evenodd"></path>
+                                                                                    </svg></div>
+                                                                            </div>
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">Terminal
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div
+                                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                            <div class="Box-root Box-hideIfEmpty"
+                                                                                style="pointer-events:auto">
+                                                                                <div class="Box-root"><button
+                                                                                        title="Copy to clipboard"
+                                                                                        type="button"
+                                                                                        class="UnstyledLink">
+                                                                                        <div aria-hidden="true"
+                                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                            <svg aria-hidden="true"
+                                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                height="14" width="14"
+                                                                                                viewBox="0 0 16 16"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                    fill-rule="evenodd">
+                                                                                                </path>
+                                                                                            </svg></div>
+                                                                                    </button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 2.1 Terminal input -->
+                                                                <pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">keysmith generate -o seed.txt</code><span class="CodeBlock-lineNumbers"><span></span></span></div>
+                                                                </pre><pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">keysmith private-key -o private.pem</code><span class="CodeBlock-lineNumbers"><span></span></span></div>
+                                                                </pre>
+                                                                
+                                                            </div>
+
+                                                                 <!-- 1.2 Terminal Input + Output -->
+                                                                 <div data-language="bash"
+                                                                 class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                 <div
+                                                                     class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                     <div class="Box-root" style="pointer-events:none">
+                                                                         <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                             style="margin-left:-4px;margin-top:-4px">
+                                                                             <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                 style="pointer-events:auto">
+                                                                                 <div aria-hidden="true"
+                                                                                     class="SVGInline SVGInline--cleaned SVG Icon Icon--terminal CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                     <svg aria-hidden="true"
+                                                                                         class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--terminal-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                         height="12" width="12"
+                                                                                         viewBox="0 0 12 16"
+                                                                                         xmlns="http://www.w3.org/2000/svg">
+                                                                                         <path
+                                                                                             d="M2 0h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v5h6V2H2zm.5 12a.5.5 0 1 0 0 1h5a.5.5 0 1 0 0-1h-5zm9-13.5a.5.5 0 0 1 .5.5v14a.5.5 0 1 1-1 0V1a.5.5 0 0 1 .5-.5z"
+                                                                                             fill-rule="evenodd"></path>
+                                                                                     </svg></div>
+                                                                             </div>
+                                                                             <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                 style="pointer-events:auto">Terminal</div>
+                                                                         </div>
+                                                                     </div>
+                                                                     <div class="Box-root" style="pointer-events:none">
+                                                                         <div
+                                                                             class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                             <div class="Box-root Box-hideIfEmpty"
+                                                                                 style="pointer-events:auto">
+                                                                                 <div class="Box-root"><button
+                                                                                         title="Copy to clipboard"
+                                                                                         type="button"
+                                                                                         class="UnstyledLink">
+                                                                                         <div aria-hidden="true"
+                                                                                             class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                             <svg aria-hidden="true"
+                                                                                                 class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                 height="14" width="14"
+                                                                                                 viewBox="0 0 16 16"
+                                                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                                                 <path
+                                                                                                     d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                     fill-rule="evenodd">
+                                                                                                 </path>
+                                                                                             </svg></div>
+                                                                                     </button></div>
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <pre
+                                                                     class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">keysmith account -i 0
+<span class="token punctuation">dg502c8c2dcd20b9aa5f43fdc2a875bd8f1a183fe289f5c7e3c236b49be1cf44</span></code><span class="CodeBlock-lineNumbers"><span></span><span></span></span></div></pre>
+                                                             </div>
+                                                             
+                                                        </div>
+                                                        
+                                                        <p>The command above will generate an unique account on the Ledger (number above is an example outpout).    </p>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <!-- Step 3: Connect that key to DFX-->
+                                                <div aria-expanded="true" class="Section Section--numbered Box-root">
+                                                    <a
+                                                    id="login-account"
+                                                    class="UnstyledLink InlineLink Text-color--blue"
+                                                    href="#connect-key">
+                                                    <div class="Box-root Padding-top--16 Padding-bottom--12">
+                                                        <div
+                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--spaceBetween">
+                                                            <h2 class="Heading Section-header">Connect that key to DFX<div
+                                                                    class="Section-badge-list Box-root Padding-left--8">
+                                                                </div>
+                                                            </h2>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    </a>
+
+                                                    <!-- 3.1 explanation of why to connec to dfx -->
+                                                    <div tabindex="-1"
+                                                        class="Section-content Box-root Padding-top--0 Padding-bottom--32">
+                                                        <p>DFX is the Canister SDK used for smart contract canister development. 
+                                                            This SDK has an important feature we will use: the SDK can send messages to canisters on the Internet Computer. 
+                                                            Since we need to send *signed* messages to the Governance Canister on the NNS, we will need to use DFX (neither Quill nor Keysmith can send messages).
+                                                            First install, dfx...
+                                                        </p>
+                                                        <div class="Box-root">
+                                                            <div data-language="bash"
+                                                                class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                <div
+                                                                    class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                            style="margin-left:-4px;margin-top:-4px">
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="12" width="12"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                            fill-rule="evenodd"></path>
+                                                                                    </svg></div>
+                                                                            </div>
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">Terminal
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div
+                                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                            <div class="Box-root Box-hideIfEmpty"
+                                                                                style="pointer-events:auto">
+                                                                                <div class="Box-root"><button
+                                                                                        title="Copy to clipboard"
+                                                                                        type="button"
+                                                                                        class="UnstyledLink">
+                                                                                        <div aria-hidden="true"
+                                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                            <svg aria-hidden="true"
+                                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                height="14" width="14"
+                                                                                                viewBox="0 0 16 16"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                    fill-rule="evenodd">
+                                                                                                </path>
+                                                                                            </svg></div>
+                                                                                    </button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <pre
+                                                                    class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+                                                                    <pre
+                                                                    class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">dfx --version
+<span class="token punctuation">dfx 0.8.1</span></code><span class="CodeBlock-lineNumbers"><span></span><span></span></span></div></pre>
+                                                            </div>
+
+                                                            <!-- Explanation of step 3.2 -->
+                                                            <p>Now that DFX is installed, we need to link the previously created keys by <a href="https://sdk.dfinity.org/docs/developers-guide/cli-reference/dfx-identity.html#_dfx_identity_import">"importing an identity"</a> with a command of structure <code>dfx identity import [flag] $identity_name $pem_file-name</code>.</p> 
+                                                            <p>In the example below, the name of the $identity_name is "proposals" and the name of $pem_file_name is "private.pem"</p>
+                                                            
+                                                            <!-- Bash Code snippet of step 3.2 -->
+                                                            <div data-language="bash"
+                                                                class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                <div
+                                                                    class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                            style="margin-left:-4px;margin-top:-4px">
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--terminal CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--terminal-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="12" width="12"
+                                                                                        viewBox="0 0 12 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M2 0h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v5h6V2H2zm.5 12a.5.5 0 1 0 0 1h5a.5.5 0 1 0 0-1h-5zm9-13.5a.5.5 0 0 1 .5.5v14a.5.5 0 1 1-1 0V1a.5.5 0 0 1 .5-.5z"
+                                                                                            fill-rule="evenodd"></path>
+                                                                                    </svg></div>
+                                                                            </div>
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">Output</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div
+                                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                            <div class="Box-root Box-hideIfEmpty"
+                                                                                style="pointer-events:auto">
+                                                                                <div class="Box-root"><button
+                                                                                        title="Copy to clipboard"
+                                                                                        type="button"
+                                                                                        class="UnstyledLink">
+                                                                                        <div aria-hidden="true"
+                                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                            <svg aria-hidden="true"
+                                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                height="14" width="14"
+                                                                                                viewBox="0 0 16 16"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                    fill-rule="evenodd">
+                                                                                                </path>
+                                                                                            </svg></div>
+                                                                                    </button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <pre
+                                                                    class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">dfx identity import proposals private.pem
+creating identity: proposals...<span class="token punctuation"></span></code><span class="CodeBlock-lineNumbers"><span></span><span></span></span></div></pre>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+
+
+                                                <!-- Step 4: Install Quill -->
+                                                <div aria-expanded="true" class="Section Section--numbered Box-root">
+                                                    <a
+                                                    id="login-account"
+                                                    class="UnstyledLink InlineLink Text-color--blue"
+                                                    href="#install-quill">
+                                                    <div class="Box-root Padding-top--16 Padding-bottom--12">
+                                                        <div
+                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--spaceBetween">
+                                                            <h2 class="Heading Section-header">Install Quill<div
+                                                                    class="Section-badge-list Box-root Padding-left--8">
+                                                                </div>
+                                                            </h2>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                                    <div tabindex="-1"
+                                                        class="Section-content Box-root Padding-top--0 Padding-bottom--32">
+                                                        <p><a href="https://github.com/dfinity/quill">Quill</a> is a minimalistic ledger and governance toolkit.</p>
+
+                                                        <p>We will use Quill to create messages which will then be sent by DFX to the Governance Caniter (Quill cannot send messages to the Internet Computer)</p>
+                                                        <p>To install Quill...</p>
+
+                                                        <p>4.1 Install Rust if you do not have it already: <a href=" https://rustup.rs/">Rust installation</a></p>
+                                                        <p>4.2 Install OpenSS if you do not have it already, which we recommend you install via <a href="https://brew.sh/">Homebrew</a></p>
+
+                                                        <p>4.3 Follow the <a href="https://github.com/dfinity/quill#download">Download instructions</a></p>
+                                                        <p>.4 Follow the <a href="https://github.com/dfinity/quill#build">Build instructions (these need Rust)</a></p>
+
+                                                        <p>Once Quill is installed, we make sure the account linked to Quill is the same that was created in Step 1 (in our example, it is <code>dg502c8c2dcd20b9aa5f43fdc2a875bd8f1a183fe289f5c7e3c236b49be1cf44</code>)</p>
+                                                        <div class="Box-root">
+                                                            <div data-language="bash"
+                                                                class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                                <div
+                                                                    class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                            style="margin-left:-4px;margin-top:-4px">
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="12" width="12"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                            fill-rule="evenodd"></path>
+                                                                                    </svg></div>
+                                                                            </div>
+                                                                            <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                                style="pointer-events:auto">Terminal
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="Box-root" style="pointer-events:none">
+                                                                        <div
+                                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                            <div class="Box-root Box-hideIfEmpty"
+                                                                                style="pointer-events:auto">
+                                                                                <div class="Box-root"><button
+                                                                                        title="Copy to clipboard"
+                                                                                        type="button"
+                                                                                        class="UnstyledLink">
+                                                                                        <div aria-hidden="true"
+                                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                            <svg aria-hidden="true"
+                                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                                height="14" width="14"
+                                                                                                viewBox="0 0 16 16"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                                    fill-rule="evenodd">
+                                                                                                </path>
+                                                                                            </svg></div>
+                                                                                    </button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <pre
+                                                                    class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">target/release/quill --pem-file private.pem public-ids</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+                                                                    <pre
+                                                                    class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">dfx --identity proposals ledger account-id</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+
+                                                                </div>
+                                                       
+                                                        </div>
+                                                        <p>Now that Quill and DFX can both sign messagess on behalf of the same account number (example <code>dg502c8c2dcd20b9aa5f43fdc2a875bd8f1a183fe289f5c7e3c236b49be1cf44</code>), 
+                                                            then we need to create a neuron and give it at least 1 ICP so that it can submit an NNS Proposal (only Neurons can sjubmit NNS proposals and it costs them 1 ICP) </p>
+                                                    </div>
+                                                </div>
+                                                                                            
+                            
+                                                
+                                                <!-- Step 5: Create a neuron for Quill to send Send at least 1 ICP to the account-->
+                                                <div aria-expanded="true" class="Section Section--numbered Box-root"><a
+                                                        id="ready" class="UnstyledLink InlineLink Text-color--blue"
+                                                        href="#create-neuron">
+                                                        <div class="Box-root Padding-top--16 Padding-bottom--12">
+                                                            <div
+                                                                class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--spaceBetween">
+                                                                <h2 class="Heading Section-header">Create a neuron that will submit the Proposals to the NNS<div
+                                                                        class="Section-badge-list Box-root Padding-left--8">
+                                                                    </div>
+                                                                </h2>
+                                                                <div aria-hidden="true"
+                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--chevronUp Section-expand-icon Icon-color Icon-color--gray Box-root Flex-flex">
+                                                                    <svg aria-hidden="true"
+                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronUp-svg Section-expand-icon-svg Icon-color-svg Icon-color--gray-svg"
+                                                                        height="14" width="14" viewBox="0 0 16 16"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M13.591 11.008L8 5.417l-5.591 5.591A1 1 0 0 1 .993 9.593l6.3-6.3a1 1 0 0 1 1.414 0l6.3 6.3a1 1 0 0 1-1.416 1.415z"
+                                                                            fill-rule="evenodd"></path>
+                                                                    </svg></div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div tabindex="-1"
+                                                        class="Section-content Box-root Padding-top--0 Padding-bottom--32">
+                                                        <p>Buy at least 1.01 ICP and send it to the account number we have been handling. In our example it is: <code>dg502c8c2dcd20b9aa5f43fdc2a875bd8f1a183fe289f5c7e3c236b49be1cf44</code></p>
+                                                        <p>Once you have the ICP, you can use the NNS Dapp or any exchange or wallet to send it to the address.</p>
+
+                                                        <p>Now that your account has ICP, use quill to spawn a neuron. Remember to write down the neuron ID.</p>
+
+                                                        <div data-language="bash"
+                                                        class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                        <div
+                                                            class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                            <div class="Box-root" style="pointer-events:none">
+                                                                <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                    style="margin-left:-4px;margin-top:-4px">
+                                                                    <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                        style="pointer-events:auto">
+                                                                        <div aria-hidden="true"
+                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                            <svg aria-hidden="true"
+                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                height="12" width="12"
+                                                                                viewBox="0 0 16 16"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                    fill-rule="evenodd"></path>
+                                                                            </svg></div>
+                                                                    </div>
+                                                                    <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                        style="pointer-events:auto">Terminal</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Box-root" style="pointer-events:none">
+                                                                <div
+                                                                    class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                    <div class="Box-root Box-hideIfEmpty"
+                                                                        style="pointer-events:auto">
+                                                                        <div class="Box-root"><button
+                                                                                title="Copy to clipboard"
+                                                                                type="button" class="UnstyledLink">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="14" width="14"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                            fill-rule="evenodd">
+                                                                                        </path>
+                                                                                    </svg></div>
+                                                                            </button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">target/release/quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+                                                        <pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">target/release/quill send message.json</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+   
+                                                    </div>
+
+                                                        <p>Increase the neuron's dissolve to at least six months. In our example we will use 1 year which is 31557600 seconds. In our case, the neuron ID is <code>148885932052941245</code></p>
+
+                                                        <div data-language="bash"
+                                                        class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                        <div
+                                                            class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                            <div class="Box-root" style="pointer-events:none">
+                                                                <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                    style="margin-left:-4px;margin-top:-4px">
+                                                                    <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                        style="pointer-events:auto">
+                                                                        <div aria-hidden="true"
+                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                            <svg aria-hidden="true"
+                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                height="12" width="12"
+                                                                                viewBox="0 0 16 16"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                    fill-rule="evenodd"></path>
+                                                                            </svg></div>
+                                                                    </div>
+                                                                    <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                        style="pointer-events:auto">Terminal</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Box-root" style="pointer-events:none">
+                                                                <div
+                                                                    class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                    <div class="Box-root Box-hideIfEmpty"
+                                                                        style="pointer-events:auto">
+                                                                        <div class="Box-root"><button
+                                                                                title="Copy to clipboard"
+                                                                                type="button" class="UnstyledLink">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="14" width="14"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                            fill-rule="evenodd">
+                                                                                        </path>
+                                                                                    </svg></div>
+                                                                            </button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">target/release/quill --pem-file private.pem neuron-manage 148885932052941245 --additional-dissolve-delay-seconds 31557600 > message.json</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+                                                        <pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">target/release/quill send message.json</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+   
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Step 6: Send Quill messages to NNS via dfx-->
+                                                <div aria-expanded="true" class="Section Section--numbered Box-root"><a
+                                                    id="ready" class="UnstyledLink InlineLink Text-color--blue"
+                                                    href="#send-quill-messages">
+                                                    <div class="Box-root Padding-top--16 Padding-bottom--12">
+                                                        <div
+                                                            class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--spaceBetween">
+                                                            <h2 class="Heading Section-header">Send Quill messages to NNS via DFX<div
+                                                                    class="Section-badge-list Box-root Padding-left--8">
+                                                                </div>
+                                                            </h2>
+                                                            <div aria-hidden="true"
+                                                                class="SVGInline SVGInline--cleaned SVG Icon Icon--chevronUp Section-expand-icon Icon-color Icon-color--gray Box-root Flex-flex">
+                                                                <svg aria-hidden="true"
+                                                                    class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--chevronUp-svg Section-expand-icon-svg Icon-color-svg Icon-color--gray-svg"
+                                                                    height="14" width="14" viewBox="0 0 16 16"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M13.591 11.008L8 5.417l-5.591 5.591A1 1 0 0 1 .993 9.593l6.3-6.3a1 1 0 0 1 1.414 0l6.3 6.3a1 1 0 0 1-1.416 1.415z"
+                                                                        fill-rule="evenodd"></path>
+                                                                </svg></div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div tabindex="-1"
+                                                    class="Section-content Box-root Padding-top--0 Padding-bottom--32">
+                                                    <p>To create a Motion Proposal we need to have DFX send a message to the Governance Canister <em>on behalf of the newly-created neuron</em>. 
+                                                    For the sake of legibility, we show the fields and then the actual (harder to read) dfx command underneath</p>
+
+                                                        
+                                                    <div data-language="json" class="CodeBlock Box-root Box-background--blue800"><div class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween"><div class="Box-root" style="pointer-events: none;"><div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap" style="margin-left: -4px; margin-top: -4px;"><div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4" style="pointer-events: auto;"><div aria-hidden="true" class="SVGInline SVGInline--cleaned SVG Icon Icon--document CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex"><svg aria-hidden="true" class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--document-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg" height="12" width="12" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M7 0v5a2 2 0 0 0 2 2h5v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm2 0l5 5H9z"></path></svg></div></div><div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4" style="pointer-events: auto;">example fields</div></div></div><div class="Box-root" style="pointer-events: none;"><div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"><div class="Box-root Box-hideIfEmpty" style="pointer-events: auto;"><div class="Box-root"><button title="Copy to clipboard" type="button" class="UnstyledLink"><div aria-hidden="true" class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex"><svg aria-hidden="true" class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg" height="14" width="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z" fill-rule="evenodd"></path></svg></div></button></div></div></div></div></div><pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code"><span class="token punctuation">{</span>
+  <span class="token property">"action"</span><span class="token operator">:</span> <span class="token string">"motion"</span><span class="token punctuation">,</span>
+  <span class="token property">"summary"</span><span class="token operator">:</span> <span class="token string">"implement design"</span><span class="token punctuation">,</span>
+  <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://github.com/ic-association/nns-proposals/blob/main/proposals/governance/20210901T1500Z.md"</span><span class="token punctuation">,</span>
+  <span class="token property">"motionText"</span><span class="token operator">:</span> <span class="token string">"Currently, smart contract canister..."</span><span class="token punctuation">,</span>
+  <span class="token property">"neuron"</span><span class="token operator">:</span> <span class="token string">"{id=1488859320522941245:nat64}"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code><div class="CodeBlock-highlightedRange default" style="top: 131.556px; height: 15.5556px;"></div></div></pre></div>
+
+
+                                                <p>Use DFX to construct a messsage that is sent to the Governance Canister.</p>
+                                                <p>Few things to note: </p>
+                                                <ul>
+                                                    <li>"neuronId" has the type "nat64" appended to the number sent via dfx. It will not work otherwise.</li>
+                                                    <li>"motionText" can be be many paragraphs long.</li>
+                                                    <li>"proposals" in the example below is the name of the identity created for this example.</li>
+                                                    <li>"proposals" in the example below is the name of the identity created for this example.</li>
+                                                    <li>"rrkah-fqaaa-aaaaa-aaaaq-cai" is the ID of the Governance Canister: <a href="https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.ic0.app/?id=rrkah-fqaaa-aaaaa-aaaaq-cai">Candid UI</a></li>
+                                                </ul>
+
+                                                <div data-language="bash"
+                                                        class="CodeBlock CodeBlock-numbered Box-root Box-background--blue800">
+                                                        <div
+                                                            class="CodeBlock-header Box-root Flex-flex Flex-justifyContent--spaceBetween">
+                                                            <div class="Box-root" style="pointer-events:none">
+                                                                <div class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                                    style="margin-left:-4px;margin-top:-4px">
+                                                                    <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                        style="pointer-events:auto">
+                                                                        <div aria-hidden="true"
+                                                                            class="SVGInline SVGInline--cleaned SVG Icon Icon--api CodeBlock-file-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                            <svg aria-hidden="true"
+                                                                                class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--api-svg CodeBlock-file-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                height="12" width="12"
+                                                                                viewBox="0 0 16 16"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M5.128 0h5.744c1.783 0 2.43.186 3.082.534.652.349 1.163.86 1.512 1.512S16 3.345 16 5.128v5.744c0 1.783-.186 2.43-.534 3.082a3.635 3.635 0 0 1-1.512 1.512c-.652.348-1.299.534-3.082.534H5.128c-1.783 0-2.43-.186-3.082-.534s-1.163-.86-1.512-1.512C.186 13.302 0 12.655 0 10.872V5.128c0-1.783.186-2.43.534-3.082A3.635 3.635 0 0 1 2.046.534C2.698.186 3.345 0 5.128 0zM9 11a1 1 0 0 0 0 2h3a1 1 0 0 0 0-2zM8 8.997a.997.997 0 0 0-.357-.768L4.702 5.288a1 1 0 0 0-1.414 1.414l2.295 2.295-2.295 2.296a1 1 0 0 0 1.414 1.414l2.941-2.941c.022-.019.044-.038.064-.059A.997.997 0 0 0 8 8.997z"
+                                                                                    fill-rule="evenodd"></path>
+                                                                            </svg></div>
+                                                                    </div>
+                                                                    <div class="Box-root Box-hideIfEmpty Margin-top--4 Margin-left--4"
+                                                                        style="pointer-events:auto">Terminal</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="Box-root" style="pointer-events:none">
+                                                                <div
+                                                                    class="Box-root Flex-flex Flex-alignItems--center Flex-direction--row Flex-justifyContent--flexStart Flex-wrap--nowrap">
+                                                                    <div class="Box-root Box-hideIfEmpty"
+                                                                        style="pointer-events:auto">
+                                                                        <div class="Box-root"><button
+                                                                                title="Copy to clipboard"
+                                                                                type="button" class="UnstyledLink">
+                                                                                <div aria-hidden="true"
+                                                                                    class="SVGInline SVGInline--cleaned SVG Icon Icon--clipboard CodeBlock-copy-icon Icon-color Icon-color--gray300 Box-root Flex-flex">
+                                                                                    <svg aria-hidden="true"
+                                                                                        class="SVGInline-svg SVGInline--cleaned-svg SVG-svg Icon-svg Icon--clipboard-svg CodeBlock-copy-icon-svg Icon-color-svg Icon-color--gray300-svg"
+                                                                                        height="14" width="14"
+                                                                                        viewBox="0 0 16 16"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M7 5h2a3 3 0 0 0 3-3 2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2 3 3 0 0 0 3 3zM6 2a2 2 0 1 1 4 0 1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"
+                                                                                            fill-rule="evenodd">
+                                                                                        </path>
+                                                                                    </svg></div>
+                                                                            </button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <pre class="CodeBlock-content"><div class="CodeBlock-wrapper"><code class="CodeBlock-code">dfx --identity proposals canister --network ic --no-wallet call rrkah-fqaaa-aaaaa-aaaaq-cai manage_neuron '(record {id = null; command=opt variant {MakeProposal=record {url="urlExample"; action=opt variant {Motion=record {motion_text="motionExample"}}; summary="summaryExample"}}; neuron_id_or_subaccount=opt variant {NeuronId=record {id=148885932052941245:nat64}}})'</code><span class="CodeBlock-lineNumbers"><span></span></span></div></pre>
+                                                    </div>
+                                                    
+                                                    <p>You can now see your proposal in the <a href="https://dashboard.internetcomputer.org/governance?topic=TOPIC_GOVERNANCE">Internet Computer Dashboard!</a></p>
+
+                                                </div>
+                                            </div>
+
+
+                                                
+                                            </div>
+                                        </article>
+                           
+                                    </div>
+
+                                    <!-- Table of contents -->
+                                    <div class="TableOfContents Box-root"><span
+                                            class="TableOfContents-header Text-color--dark Text-fontSize--13 Text-fontWeight--medium Text-lineHeight--20 Text-numericSpacing--proportional Text-typeface--upper Text-wrap--wrap Text-display--inline">On
+                                            this page</span>
+                                        <div class="Box-root" style="pointer-events:none">
+                                            <div class="Box-root Flex-flex Flex-direction--column Flex-justifyContent--flexStart Flex-wrap--nowrap"
+                                                style="margin-left:-12px;margin-top:-12px">
+
+                                                <!-- Table of contents step 1: Install Keysmith -->
+                                                <div class="Box-root Box-hideIfEmpty Margin-top--12 Margin-left--12"
+                                                    style="pointer-events:auto"><span
+                                                        class="Text-color--blue Text-lineHeight--16 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline"><a
+                                                            href="#install-keysmith" title="Install Keysmith"
+                                                            class="UnstyledLink">1. Install Keysmith</a></span></div>
+
+                                                 <!-- Table of contents step 2: Generate a Key with Keysmith -->
+                                                <div class="Box-root Box-hideIfEmpty Margin-top--12 Margin-left--12"
+                                                    style="pointer-events:auto"><span
+                                                        class="Text-color--gray Text-lineHeight--16 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline"><a
+                                                            href="#generate-key"
+                                                            title="Generate a key with Keysmith"
+                                                            class="UnstyledLink">2. Generate a key with Keysmith</a></span></div>
+
+                                                <!-- Table of contents step 3: Connect that key to DFX -->
+                                                <div class="Box-root Box-hideIfEmpty Margin-top--12 Margin-left--12"
+                                                    style="pointer-events:auto"><span
+                                                        class="Text-color--gray Text-lineHeight--16 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline"><a
+                                                            href="#connnect-key" title="Connect key to dfx"
+                                                            class="UnstyledLink">3. Connect key to dfx</a></span></div>
+                                                
+                                                <!-- Table of contents step 4: Install Quill -->
+                                                <div class="Box-root Box-hideIfEmpty Margin-top--12 Margin-left--12"
+                                                style="pointer-events:auto"><span
+                                                    class="Text-color--blue Text-lineHeight--16 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline"><a
+                                                        href="#install-quill" title="Install Quill"
+                                                        class="UnstyledLink">4. Install Quill</a></span></div>
+
+                                                <!-- Table of contents step 5: Create and sign messages with Quill-->
+                                                <div class="Box-root Box-hideIfEmpty Margin-top--12 Margin-left--12"
+                                                style="pointer-events:auto"><span
+                                                    class="Text-color--gray Text-lineHeight--16 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline"><a
+                                                        href="#create-neuron" title="Create and sign messages with Quill"
+                                                        class="UnstyledLink">5. Create neuron</a></span>
+                                                </div>
+                             
+
+                                                <!-- Table of contents step 6: Create and sign messages with Quill-->
+                                                <div class="Box-root Box-hideIfEmpty Margin-top--12 Margin-left--12"
+                                                    style="pointer-events:auto"><span
+                                                        class="Text-color--gray Text-lineHeight--16 Text-numericSpacing--proportional Text-typeface--base Text-wrap--wrap Text-display--inline"><a
+                                                            href="#create-quill-messages" title="Create and sign messages with Quill"
+                                                            class="UnstyledLink">6. Send Quill messages to NNS via DFX</a></span>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CookieBanner" style="opacity:0;transform:translateY(100px) translateZ(0)"></div>
         </div>
-
-        <!-- Section 2 -->
-        <div class="text">
-            <h1>Tools and Requirements</h1>
-            
-        <div class="text">
-            <h1>How to submit a Motion Proposal</h1>
-            <br />
-            <p>The Network Nervous System (NNS) is the controlling mechanism by which the Internet Computerâ€™s nodes and subnets are organized, tracked, and managed.</p>
-            <p>The Internet Computer community is actively involved in designing and shaping the network's roadmap. Proposed upgrades to the NNS are subject to community discussion, voting, and approval.</p>
-            <p>The community of ICP token holders can use neurons to vote on proposed roadmap items. Check out the Internet Computer Roadmap page here. This walkthrough will detail how to submit a motion proposal. </p>
-            <p>Guide users to submit motion proposals as done for <a href="https://dashboard.internetcomputer.org/proposal/18337">Increased Canister Storage</a></p>
-            <br />
-        </div>
-
-
-        <!-- Section 3: Steps -->
-
-        <div class="text">
-            <h1>Steps to Submit a proposal</h1>
-
-            <p>Note: since the NNS Dapp accounts have only a few ICP and the new  neuron only had 1 ICP, I did all of this on just one laptop connected to the internet.</p>
-
-		<p><i>Expand each section for the detailed instructions</i></p>
-            <!-- Step 1 -->
-            <div class="text">
-		<details>
-		<summary>1. Create a key with keysmith</summary>
-                
-                Generate Seed: keysmith generate -o seed.txt<br />
-                <br />
-		<p class="code">
-                <code>
-                    $ keysmith private-key -o private.pem<br />
-                    $ Ledger Account: keysmith account -i 0<br />
-                </code>
-		</p>
-		</details>
-            </div>
-
-
-            <!-- Step 2 -->
-            <div class="text">
-		<details>
-		<summary>2. Link that key to dfx</summary>
-
-                Install that key into dfx and create an identity (called "proposals" in my case) on dfx
-                <br />
-		<p class="code">
-                <code> $ dfx identity import proposals private.pem<br /></code>
-		</p>
-                <br />
-                Look at the IDs on quill and dfx to make sure the principals are the same
-                <br />
-		<p class="code">
-                <code>
-                    $ quill --pem-file private.pem public-ids<br />
-                    $ dfx --identity proposals ledger account-id<br />
-                </code>
- 		</p>
-               <br />
-                In my case it was the same account: 97b5eb9a467f4ce6f43a494ee0bfedeeee0b52d106e0272556c1ad991f99e3da
-
-		</details>
-            </div>
-
-
-            <!-- Step 3 -->
-            <div class="text">
-		<details>
-		<summary>3. Send at least 1 ICP to the account in step #1</summary>
-
-                You need at least 1 ICP to stake a neuron and there are 0.01 transaction fees, so I recommend sending 1.1
-                <br />
-                Now that your account has ICP, use quill to spawn a neuron
-                <br />
-		<p class="code">
-                <code>
-                $ quill --pem-file private.pem neuron-stake --name $NAME --amount $AMOUNT > message.json
-                $ quill send message.json
-                </code>
-		</p>
-		</details>
-            </div>
-
-
-
-            <!-- Step 4 -->
-            <div class="text">
-		<details>
-		<summary>4. Increase neuron dissolve to 1 year with quill</summary>
-
-                One year: 31557600<br/>
-		<p class="code">
-                <code>
-                $ quill --pem-file private.pem neuron-manage 148885932052941245 --additional-dissolve-delay-seconds 31557600 > message.json<br/>
-                $ quill send message.json<br/>
-                </code>
-		</p>
-		</details>
-            </div>
-
-
-            <!-- Step 5 -->
-            <div class="text">
-		<details>
-		<summary>5. Send proposal with dfx</summary>
-
-                Manually construct the payload with following parameters:
-                <br />
-		<p class="code">
-                <code>
-                    Payload:
-                    <br/>
-                    {
-                    <br/>
-                    //type of proposal <br/>
-                    action: motion, <br/> 
-                    <br/>
-                    //this is the summary shown at the top of the proposal. typically few words <br/>
-                    summary: "Implement the design...” <br/>
-                    <br/>
-                    //URL linked, typically a github link here:https://github.com/ic-association/nns-proposals <br/>
-                    url="https://github.com/ic-association/nns-proposals... ” <br/>
-                    <br/>
-                    //description, can be multiple sentences <br/>
-                    motionText: "Currently, smart contract canister... "  <br/>
-                    <br/>
-                    //neuron to propose. Caller must have access to this neuron. This is Diego’s neuron. <br/>
-                    neuron: {id=1488859320522941245:nat64} <br/>
-                    <br/>
-                    } <br/>
-                </code>
- 		</p>
-               <br />
-                <p>The actual DFX command:</p>
-		<p class="code">
-                <code>
-                    $ dfx --identity proposals canister --network ic --no-wallet call rrkah-fqaaa-aaaaa-aaaaq-cai manage_neuron '(record {id = null; command=opt variant {MakeProposal=record {url="urlExample"; action=opt variant {Motion=record {motion_text="motionExample"}}; summary="summaryExample"}}; neuron_id_or_subaccount=opt variant {NeuronId=record {id=148885932052941245:nat64}}})'
-                </code>
-		</p>
-		</details>
-            </div>
-
-
-            <!-- Step 6 -->
-           <div class="text">
-		<details>
-		<summary>6. Verify the proposal was submitted.</summary>
-                Go to <a href="https://dashboard.internetcomputer.org/governance">https://dashboard.internetcomputer.org/governance </a>
-		</details>
-            </div>
-        </div>
-
     </div>
-
-
- 
-           
-
-    <!-- </section>     -->
-
-</div>
-
 </body>
+
+
 </html>
