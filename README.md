@@ -2,6 +2,8 @@
 
 This is a static page (hosted on the Internet Computer) that gives user instructions on how to submit motion proposals to the NNS.
 
+You can see it deployed to a canister here: https://3ndt4-3yaaa-aaaah-qbjaq-cai.raw.ic0.app/
+
 ## Running the project locally
 
 If you want to test your project locally, you can use the following commands:
@@ -38,4 +40,4 @@ This will put you in the following developer loop:
 
 ### Notes on the styling and front-end
 
-Diego note: While the commands in this tutorial are all valid. The actual front-end and styling is still a work in progress. As a starting point (and solely for inspiration to get my thoughts in order), I used my favorite developer documentation as inspiration (Stripe's docs). This tutorial is a public repo done for fun and should not be seen as official by [DFINITY](https://dfinity.org/) Foundation ubless more original front-end is used. 
+@dprats note: While the commands in this tutorial are all valid. The actual front-end and styling is still a work in progress. As a starting point (and solely for inspiration to get my thoughts in order), I used my favorite developer documentation as inspiration (Stripe's docs). This tutorial is a public repo done for fun and should not be seen as official by [DFINITY](https://dfinity.org/) Foundation ubless more original front-end is used. 
