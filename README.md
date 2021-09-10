@@ -40,4 +40,4 @@ This will put you in the following developer loop:
 
 ### Notes on the styling and front-end
 
-@dprats note: While the commands in this tutorial are all valid. The actual front-end and styling is still a work in progress. As a starting point (and solely for inspiration to get my thoughts in order), I used my favorite developer documentation as inspiration (Stripe's docs). This tutorial is a public repo done for fun and should not be seen as official by [DFINITY](https://dfinity.org/) Foundation ubless more original front-end is used. 
+@dprats note: While the commands in this tutorial are all valid. The actual front-end and styling is still a work in progress. As a starting point (and solely for inspiration to get my thoughts in order), I used my favorite developer documentation as inspiration (Stripe's docs). This tutorial is a public repo done for fun and should not be seen as official by [DFINITY](https://dfinity.org/) Foundation until more original front-end is used. 
